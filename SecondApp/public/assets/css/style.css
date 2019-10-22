@@ -1,0 +1,107 @@
+body {
+    margin: 0 auto;
+    width: 80%;
+}
+
+#nav {
+    background-color: darkcyan;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 1%;
+  
+}
+
+
+#nav a:link, a:hover, a:visited, a:active, a {
+    text-decoration:none;
+    color:white;
+    
+}
+    
+#nav ul li {
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 20px;
+}
+
+#login form {
+    position: relative;
+    left: 35%;
+}
+
+#login p a{
+    color: black;
+}
+
+#login form input {
+    position: relative;
+    margin-bottom: 10px;
+    left: 2%;
+    width: 240px;
+}
+
+#login form label{
+    font-family: sans-serif;
+    width: 20px;
+}
+
+#login form #btEnviar {
+    position: relative;
+    margin-top: 5px;
+    left: 8%;
+}
+
+
+
+#forgotten h3 {
+    position: relative;
+    left: 35%;
+}
+
+#forgotten form {
+    margin-top: 8%;
+    position: relative;
+    left: 35%;
+    color: black;
+}
+
+#forgotten form input {
+    position: relative;
+    left: 5%;
+    width: 240px;
+}
+
+#forgotten form #btEnviar {
+    position: relative;
+    margin-top: 5px;
+    left: 8%;
+}
+
+
+#texto p{
+    margin-top: 300px;
+    text-align: center;
+    background-color: white;
+    color:black;
+}
+
+#texto h2{
+    font-family: cursive;
+    font-family: sans-serif;
+    
+}
+
+#footer{
+     background-color: darkcyan;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+#footer h2{
+    font-family: cursive;
+    font-family: sans-serif;
+    color: white;
+}
+
+
