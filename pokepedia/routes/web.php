@@ -12,11 +12,7 @@
 */
 
 
-// Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/', function () {
-//     return view('index');
-// });
 
 Route::get('/','PokemonController@index');
 
@@ -24,7 +20,10 @@ Auth::routes(['verify' => true]);
 
 
 Route::get('/home','PokemonController@main')->name('home')->middleware('verified');
+Route::get('/indexPost','PostController@index')->name('indexPost')->middleware('verified');
 
 Route::resource('pokemon', 'PokemonController');
+
+Route::resource('post', 'PostController');
 
 

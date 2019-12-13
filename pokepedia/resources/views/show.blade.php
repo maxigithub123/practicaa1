@@ -21,8 +21,27 @@
         <td>{{ $pokemon ->peso}}</td>
     </tr>
     
+    @foreach($habilidades2 as $habilidad2)
+    @foreach($habilidades as $habilidad)
     
-   
+    @if($pokemon->id == $habilidad2->idpokemon)
+    @if($habilidad2->idhabilidad == $habilidad->id)
+        <tr>
+        <td>Habilidad</td>
+        <td>{{ $habilidad->habilidad}}</td>
+        
+    </tr>
+    
+    @endif
+    @endif
+    
+    @endforeach
+    @endforeach
+    
+    
+    
+    
+ 
     <tr>
         <td>&nbsp;</td>
         <td class="text-center">

@@ -1,85 +1,73 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
+use App\Pokemon;
+use App\Habilidad;
+use App\HabilidadPokemon;
 use App\Post;
+use App\User;
+use App\Comentarios;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+         $pokemones = Pokemon::all(); //'array de pokemones'
+        $habilidades = Habilidad::all(); //'array de habilidades'
+        $habilidades2 = HabilidadPokemon::all(); //'array de habilidades asociadas'
+        $posts = Post::all(); //'array de pokemones'
+        $comentarios = Comentarios::all(); //'array de habilidades'
+        $datos= ['pokemones' => $pokemones,'habilidades' => $habilidades,'habilidades2' => $habilidades2,'posts' => $posts,'comentarios' => $comentarios];
+        
+        
+        return view('indexPost')->with($datos);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    
+    public function create(){
+         $post = Post::all();
+         $user = User::all();
+         $pokemones = Pokemon::all();
+         $datos = ['post' => $post,'pokemones'=> $pokemones,'users'=> $user];
+        
+        return view('createPost')->with($datos);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+   
+    public function store(PostRequest $request){
+        
+        $input = $request->validated();
+        $post = new Post($input);
+        
+       
+        $result = $post->save();
+        
+        
+        return redirect(route('indexPost'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
+    
+    public function show(Post $post){
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
+    
+    public function edit(Post $post){
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Post $post)
-    {
-        //
+    
+    public function update(Request $request, Post $post){
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Post $post)
-    {
-        //
+    
+    public function destroy(Post $post){
+        
     }
 }

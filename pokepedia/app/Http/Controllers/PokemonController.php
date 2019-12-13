@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PokemonRequest;
 
 
+
 class PokemonController extends Controller
 {
     /**
@@ -23,11 +24,13 @@ class PokemonController extends Controller
     public function index(){
         $pokemones = Pokemon::all(); //'array de pokemones'
         $habilidades = Habilidad::all(); //'array de habilidades'
+        $habilidades2 = HabilidadPokemon::all(); //'array de habilidades asociadas'
         $posts = Post::all(); //'array de pokemones'
         $comentarios = Comentarios::all(); //'array de habilidades'
+        $datos= ['pokemones' => $pokemones,'habilidades' => $habilidades,'habilidades2' => $habilidades2,'posts' => $posts,'comentarios' => $comentarios];
         
         
-        return view('indexInicio')->with(['pokemones' => $pokemones,'habilidades' => $habilidades,'posts' => $posts,'comentarios' => $comentarios]);
+        return view('indexInicio')->with($datos);
     }
     
     function main(){
@@ -78,8 +81,10 @@ class PokemonController extends Controller
     
     public function show(Pokemon $pokemon)
     {
-        
-        return view('show')->with(['pokemon'=> $pokemon]);
+        $habilidades = Habilidad::all();
+        $habilidades2 = HabilidadPokemon::all();
+        $datos = ['pokemon'=> $pokemon,'habilidades'=> $habilidades,'habilidades2'=> $habilidades2];
+        return view('show')->with($datos);
     }
 
     /**

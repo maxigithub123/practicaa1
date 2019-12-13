@@ -55,10 +55,14 @@
                         </li>
                         
                                           @if(Auth::check())
+                                          <li class="nav-item active">
+                            <a class="nav-link" href="{{url('post')}}">Posts</a>
+                        </li>
                         <form id="frm-logout" action="{{ route ('logout')}}" method="POST">
                             @csrf
                             <input type="submit" name="" class="btn btn-info" value="Cerrar sesion"/>
                         </form>
+                        
                     @else
                     @endif
                 </ul>
